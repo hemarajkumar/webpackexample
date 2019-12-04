@@ -1,0 +1,66 @@
+// Use global styles here: html, body, Headers, buttons..
+
+/* This is the css styling for the project
+Autho: Rajkumar */
+
+html {
+  font-family: $font-walsheim-light;
+}
+
+.nav {
+	display: flex;
+}
+a {
+	color: $color-black;
+}
+
+body {
+	font-family: $font-walsheim-light;
+	background-color: #cccccc;
+}
+
+main {
+	background-color: $palette-white;
+}
+
+:focus {
+	outline: none;
+}
+
+.container-full-width {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.main-content {
+	position: relative;	
+	overflow:hidden;
+}
+
+.relative {
+	position: relative;	
+}
+
+// Title Sizes
+h3, 
+h4 {
+	text-align: center;
+}
+h3 {
+	font-size: 23px;
+}
+h4 {
+	font-size: 18px;
+}
+
+a:focus {
+    outline: none;
+    outline: 0px auto #cccccc;
+    outline-offset: 0;
+}
+
+.project-container {
+	width: 1400px;
+	margin: 0 auto;
+}

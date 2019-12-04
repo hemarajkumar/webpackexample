@@ -1,0 +1,135 @@
+
+  .mini-basket {
+    position:absolute;
+    right: 10px;
+    top: 7px;
+    color: $palette-white;
+
+    @media (min-width: $media-min-desktop) {
+      right: 0;
+    }
+
+    &__trolly {
+      width: 30px;
+      height: 20px;
+      font-size: 21px;
+      &:hover {
+        text-decoration: none;
+        color:$palette-white;
+      }
+    }
+
+    &__circle {
+      border-radius: 50%;
+      background-color:red;
+      float: right;
+      color:$palette-white;
+      width: 24px;
+      height: 24px;
+      text-align: center;
+    }
+  }
+
+.popover {
+  width: 320px;
+  max-width: 320px !important;
+}
+
+.popover-content {
+    width: 320px !important;
+    padding: 5px;
+    color: $color-black;
+    box-sizing: border-box;
+}
+
+.mini-cart-popup {
+  position: relative;
+}
+.mini-cart {
+  position: absolute;
+  right: 0;
+	width: 360px;
+  &__order-list {
+    @include flexstyle;
+    width: 100%;
+    height: auto;
+    margin: 0 0 5px 0;
+    border-bottom: 1px solid $color-black;
+  }
+
+  &__thumb-image {
+    text-align: left;
+  	padding: 10px 5px 0 5px;
+    box-sizing: border-box;
+    width: 120px;
+    height: 120px;
+    @media all and (min-width: 800px) {
+        order: 1;
+        -webkit-order: 1
+    }
+    a {
+      width: 120px;
+      height: 120px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__name {
+  	@include flexstyle;
+  	text-align: left;
+  	text-decoration: none;
+  	color: $color-black;
+    &:hover {
+    		text-decoration: none;
+    		color: $color-black;
+    }
+  }
+
+  &__qty {
+  	@include flexstyle;
+  	text-align: left;
+  }
+
+  &__details {
+  	margin-left: 5px;
+  	padding: 0;
+  	box-sizing: border-box;
+    @media all and (min-width: 800px) {
+       order: 2;
+       -webkit-order: 2
+    }
+  }
+
+  &__price-details {
+    @include flexstyle;
+    @include flexdirectionrow;
+  }
+
+  &__price, &__was-price  {
+    float: left;
+    width: 100%;
+    text-align: right;
+  }
+
+  &__was-price {
+  	opacity: 0.5;
+  }
+
+  &__total {
+    text-align: right;
+    padding: 10px;
+    font-size: 1.1em;
+  }
+
+  &__checkout-button {
+    margin-left: 5%;
+    text-align: center;
+    width: 90%;
+    padding: 6px 30px;
+    font-size: 1.4em;
+  }
+
+}

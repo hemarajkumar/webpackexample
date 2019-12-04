@@ -1,0 +1,120 @@
+//
+// extend classes
+// --------------------------------------------------
+
+.next-prev-button-style-mobile {
+ 	position: absolute;
+	display: inline-block;
+	text-indent: -9999px;
+	width: 30px;
+	height: 50px;
+	top: 34%;
+	background: url('../images/arrow.svg');
+	background-size: 18px;
+	background-repeat: no-repeat;
+	background-color: $light-green;
+	opacity: 0.8;
+	@media only screen and (min-width: $media-min-tablet) {
+		background-size: 26px;
+		width: 45px;
+		height: 80px;
+	}
+ }
+
+.next-prev-button-style-desktop {
+ 	position: relative;
+	text-indent: initial;
+	background: none;
+	overflow: initial;
+  	padding: 10px 20px;
+  	font-weight: bold;
+  	color: $white;
+  	background-color: $color-blue;
+  	border-radius: 2px;
+  	width: 100%;
+  	height: auto;
+ }
+
+ @mixin stylerule1($width, $align) {
+     width: $width;
+     text-align: $align;
+ }
+
+ @mixin fontsizerule1($size, $weight, $color) {
+	font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+
+
+ .container {
+  @media (min-width: 1024px) {
+    width: 100%;
+  }
+
+  @media (min-width: 1400px) {
+    width: 1400px;
+  }
+
+  @media (min-width: 1600px) {
+    width: 1600px;
+  }
+}
+
+.noPad {
+  padding: 0;
+}
+
+.hide {
+  display: none;
+}
+
+@mixin flexstyle{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+  }
+  
+  @mixin flexinlinestyle {
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+  }
+  
+  @mixin flexjustifycontent($align) {
+	-webkit-box-pack: $align;
+	-ms-flex-pack: $align;
+	justify-content: $align;
+  }
+  
+  @mixin flexalignitem($align) {
+	-webkit-box-align: $align;
+	-ms-flex-align: $align;
+	align-items: $align;
+  }
+  
+  @mixin flexgrow($property-value) {
+	-webkit-box-flex: $property-value;
+	-ms-flex-positive: $property-value;
+	flex-grow: $property-value;
+  }
+
+  
+  @mixin flexdirectionrow {
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: row;
+	flex-direction: row;
+  }
+  
+  @mixin flexdirectioncolumn {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: column;
+	flex-direction: column;
+  }
+  
+  @mixin flexwrap($wrap) {
+	-ms-flex-wrap: $wrap;
+	flex-wrap: $wrap;
+  }
