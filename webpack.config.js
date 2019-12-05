@@ -98,8 +98,6 @@ module.exports = {
         ]
     },
     devServer: {
-        open: 'http://localhost:8080',
-        port: 8080,
         publicPath: "/",
     },
 }
