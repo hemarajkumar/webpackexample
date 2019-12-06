@@ -260,3 +260,8 @@ li.nav-item {
 		background-color: #fff;
 	}
 }
+
+.about-message {
+	@include flexstyle;
+	margin: 20px 0 0 20px;
+}

@@ -1,21 +1,8 @@
+import Vue from 'vue';
 import 'owl.carousel/dist/owl.carousel';
+import MainContent from './rendercarousel';
+let MainComponent = Vue.extend(MainContent);
+new MainComponent().$mount("#vue-carousel");
 
-var bindCarousel = function() {
-    $(document).ready(function() {
-        $('.js-homePageCarousel').owlCarousel({
-            loop:false,
-            margin:10,
-            nav:true,
-            navText: ['<div class="left"></div>', '<div class="right"></div>'],
-            dots: false,
-            rewind:false,
-            responsive:{
-              0:{items:1},
-              769:{items:2},
-              1000:{items:5}
-            }
-        });
-    });
-};
-
-bindCarousel();
+//var bindCarousel = function() {};
+//bindCarousel();

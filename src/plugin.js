@@ -1,4 +1,4 @@
-//import Vue from 'vue';
+import Vue from 'vue';
 import 'jquery';
 import 'bootstrap';
 window.jQuery = $;

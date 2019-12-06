@@ -3,7 +3,8 @@ var webpack = require("webpack");
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 var MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const resolve = relativePath => path.resolve(__dirname, '..', relativePath);
 //var extractHtml = new HtmlWebPackPlugin ({
 //    template: "./src/index.html",
 //    filename: "./index.html"
@@ -38,10 +39,28 @@ module.exports = {
         copyFonts,
         new MiniCssExtractPlugin({
             filename: 'styles/main.css'
-        })
+        }),
+        new VueLoaderPlugin()
     ],
     module: {
         rules: [
+            {
+                // vue-loader config to load `.vue` files or single file components.
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        // https://vue-loader.vuejs.org/guide/scoped-css.html#mixing-local-and-global-styles
+                        css: ['vue-style-loader', {
+                            loader: 'css-loader',
+                        }],
+                        js: [
+                            'babel-loader',
+                        ],
+                    },
+                    cacheBusting: true,
+                },
+            },
            /* {
                 test: /\.html$/,
                 use: [
@@ -97,7 +116,17 @@ module.exports = {
               }
         ]
     },
+    resolve: {
+        /**
+         * The compiler-included build of vue which allows to use vue templates
+         * without pre-compiling them
+         */
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+        },
+        extensions: ['*', '.vue', '.js', '.json'],
+    },
     devServer: {
         publicPath: "/",
-    },
+    }
 }

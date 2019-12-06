@@ -9239,6 +9239,13 @@ li.nav-item {
   li.nav-item:active {
     background-color: #fff; }
 
+.about-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  margin: 20px 0 0 20px; }
+
 .mini-basket {
   position: absolute;
   right: 10px;
