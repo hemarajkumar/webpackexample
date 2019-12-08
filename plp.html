@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<head>
+	<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8"/>
+	<meta HTTP-EQUIV="X-UA-Compatible" CONTENT="IE=edge,chrome=1"/>
+	<meta name="viewport" CONTENT="width=device-width, height=device-height, initial-scale=1, maximum-scale=1"/>
+	<meta name="robots" CONTENT="index,follow"/>
+</head>
+
+<body class="homepage">
+<header class="navbar navbar-static-top bs-docs-nav" id="top" role="banner">
+  <div class="container nopad headerNav" style="position: relative;">
+		<nav class="navbar">
+			<div id='cssmenu'>
+				<div  id="menu-block">
+					<menu-list></menu-list>
+				</div>
+			</div>
+		</nav>
+		<div class="mini-basket" style="">
+			<a id="load-minibasket-popover" class="oi oi-cart mini-basket__trolly js-mini-cart" data-container="body" data-toggle="popover" data-placement="bottom" data-content="sdfas"></a>
+			<span class="mini-basket__circle">0</span>
+		</div>
+  </div>
+</header>
+
+<div id="vueData">
+	<div class="container">
+		<h4>This page content is static, will update soon with dynamic data using vUE</h4>
+		<div class="row margin10top col-12 noPad">
+				<div id="ProductLists" class="col-12 noPad plp-products">
+					<div class="col-12 col-sm-12 col-md-2 noPad">
+						<div class="row">
+								<div class="plp-facets">
+										<div>
+											<div class="col-12">
+												<div class="plp-facets__types">
+													<h3 class="plp-facets--title">Womens Wear</h3>
+													<div class="plp-facets--option">
+														<input id="11" type="checkbox" name="color" data-category="cat02" value="blue">
+														<label for="11" class="plp-facets--option-label">blue</label>
+														<br>
+													</div>
+													<div class="plp-facets--option">
+														<input id="12" type="checkbox" name="color" data-category="cat02" value="red">
+														<label for="12" class="plp-facets--option-label">red</label>
+														<br>
+													</div>
+												</div>
+											</div>
+										</div>
+								</div>
+						</div>
+					</div>
+					<div class="col-12 col-sm-12 col-md-10 noPad">
+						<div class="plp-products__pagination col-12 col-sm-12">
+							<select class="plp-products__sort-by js-sortBy">
+									<option value="default" selected>Sort By</option>
+								  <option value="hightolow">High - Low</option>
+								  <option value="lowtohigh">Low - High</option>
+							</select>
+						</div>
+
+							<div class="col-12 col-se-12 noPad plp-products__list">
+								<div class="plp-products__product">
+									<div class="plp-products__img-container">
+										<a href="javascript:void(0);" class="js-navigatePdp plp-products__img-container--link">
+											<img srcset="dist/images/clothing2.jpg" class="plp-products__img">
+										</a>
+									</div>
+									<span class="plp-products__name">Womens wear 1</span>
+									<div class="plp-products__price">
+										<span class="plp-products__now-price">
+											£29.00
+										</span>
+									</div>
+									<button class="btn btn-danger plp-products--add-basket-btn">Add to Basket</button>
+								</div>
+
+								<div class="plp-products__product">
+									<div class="plp-products__img-container">
+										<a href="javascript:void(0);" class="js-navigatePdp plp-products__img-container--link">
+											<img srcset="dist/images/clothing3.jpg" class="plp-products__img">
+										</a>
+									</div>
+									<span class="plp-products__name">Womens wear 2</span>
+									<div class="plp-products__price">
+										<span class="plp-products__now-price"><i>Now - </i>£19.00</span>
+										<span class="plp-products__was-price">Was - <i>£38.00</i></span>
+									</div>
+									<button disabled="disabled" class="btn btn-secondary plp-products--add-basket-btn">Out of Stock</button>
+								</div>
+
+								<div class="plp-products__product">
+									<div class="plp-products__img-container">
+										<a href="javascript:void(0);" class="js-navigatePdp plp-products__img-container--link">
+											<img srcset="dist/images/clothing2.jpg" class="plp-products__img">
+										</a>
+									</div>
+									<span class="plp-products__name">Womens wear 1</span>
+									<div class="plp-products__price">
+										<span class="plp-products__now-price">
+											£29.00
+										</span>
+									</div>
+									<button class="btn btn-danger plp-products--add-basket-btn">Add to Basket</button>
+								</div>
+							</div>
+					</div>
+				</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+	<div id="basketData" class="mini-cart" style="display:none;">
+			<div class="col-12 col-sm-12 mini-cart__order-list noPad">
+			  <article class="mini-cart__thumb-image">
+					<a href="javascript:void(0);">
+						<img src="dist/images/sofa.jpg" alt="Aissa 2 Seat Sofa in Loch Brushed Linen Cotton" title="Aissa 2 Seat Sofa in Loch Brushed Linen Cotton" class="img-responsive">
+					</a>
+		  	</article>
+		  	<aside class="mini-cart__details">
+					<div class="col-12 col-sm-12 noPad">
+						<a class="mini-cart__name" href="/gb/sofas/bestselling-sofas/aissa-sofa/p/FSAIS120BLCLOC">Aissa 2 Seat Sofa in Loch Brushed Linen Cotton</a>
+					</div>
+					<div class="col-12 col-sm-12 noPad mini-cart__price-details">
+						<div class="col-5 col-sm-5 noPad">
+							<span class="mini-cart__qty">Qty : 1</span>
+						</div>
+						<div class="col-7 col-sm-7 noPad">
+							<span class="mini-cart__price">£1,241.00</span>
+							<span class="mini-cart__was-price">Was &nbsp;£1,460.00</span>
+						</div>
+					</div>
+				</aside>
+			</div>
+
+			<div class="col-12 col-sm-12 mini-cart__order-list noPad">
+				<article class="mini-cart__thumb-image">
+					<a href="javascript:void(0);">
+						<img src="dist/images/sofa.jpg" alt="Aissa 2 Seat Sofa in Loch Brushed Linen Cotton" title="Aissa 2 Seat Sofa in Loch Brushed Linen Cotton" class="img-responsive">
+					</a>
+				</article>
+				<aside class="mini-cart__details">
+					<div class="col-12 col-sm-12 noPad">
+						<a class="mini-cart__name" href="/gb/sofas/bestselling-sofas/aissa-sofa/p/FSAIS120BLCLOC">Aissa 2 Seat Sofa in Loch Brushed Linen Cotton</a>
+					</div>
+					<div class="col-12 col-sm-12 noPad mini-cart__price-details">
+						<div class="col-5 col-sm-5 noPad">
+							<span class="mini-cart__qty">Qty : 1</span>
+						</div>
+						<div class="col-7 col-sm-7 noPad">
+							<span class="mini-cart__price">£1,241.00</span>
+							<span class="mini-cart__was-price">Was &nbsp;£1,460.00</span>
+						</div>
+					</div>
+				</aside>
+			</div>
+
+			<div class="mini-cart__total">
+				 Total: £1000.00
+			</div>
+
+			<button type="button" class="btn btn-primary mini-cart__checkout-button">Checkout</button>
+	</div>
+
+
+<footer>
+		<script src="./js/plugin.bundle.js"></script>
+    <link rel="stylesheet" href="./styles/main.css" />
+	<link rel="stylesheet" href="./font/css/open-iconic-bootstrap.css" />
+	<script src="./js/app.bundle.js"></script>
+</footer>
+</body>
+</html>

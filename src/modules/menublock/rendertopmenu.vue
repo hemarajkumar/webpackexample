@@ -1,7 +1,7 @@
 <template>
-    <ul class="nav navbar-nav">
-         <li class="nav-item active main-link" v-for="menu in menuobj.menulist">
-            <a class="nav-link" href="#">
+  <ul>
+    <li v-for="menu in menuobj.menulist">
+            <a v-bind:href="menu.href">
                 {{ menu.Title }}
             </a>
         </li>
