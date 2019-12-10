@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import { navmenu } from "../common/jsondata";
-export default {
-  name: "menu-list",
-  data: () => ({
-    menuobj: []
-  }),
-  mounted() {
-    this.menuobj = navmenu;
-  }
-};
+  export default {
+    data () {
+      return {
+        menuobj: []
+      }
+    },
+    mounted() {
+      this.menuobj = this.$store.state.data.menu;
+    }
+  }; 
 </script>

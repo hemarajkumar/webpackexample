@@ -82,9 +82,9 @@ var carouselList = {"lists":[
   ]}
 ]}
 
-export {
-  navmenu,
-  carouselList
+module.exports = {
+  menu: navmenu,
+  carousel: carouselList
 }
 /*
 var catTitle = {"cattitle":[

@@ -1,8 +1,9 @@
 import Vue from 'vue';
-import 'owl.carousel/dist/owl.carousel';
-import MainContent from './rendercarousel';
-let MainComponent = Vue.extend(MainContent);
-new MainComponent().$mount("#vue-carousel");
+import { store } from "../store/store";
+import carousel from './rendercarousel.vue';
 
-//var bindCarousel = function() {};
-//bindCarousel();
+var app = new Vue({
+    store: store,
+    el: '#vue-carousel',
+    render: h => h(carousel)
+});

@@ -29,14 +29,14 @@
 
 <script>
 import CarouselFunction from "./loadcarousel";
-import { carouselList } from "../common/jsondata";
 export default {
-  name: "carousel-content",
-  data: () => ({
-    carouselobj: []
-  }),
+  data () {
+    return {
+      carouselobj: []
+    }
+  },
   mounted() {
-    this.carouselobj = carouselList;
+    this.carouselobj = this.$store.state.data.carousel;
     setTimeout(function() {
       CarouselFunction.loadCarousel();
     }, 500);

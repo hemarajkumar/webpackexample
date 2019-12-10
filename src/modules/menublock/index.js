@@ -1,5 +1,10 @@
 import Vue from 'vue';
-import NavContent from './rendertopmenu';
 require ('./navigation');
-let NavComponent = Vue.extend(NavContent);
-new NavComponent().$mount("#menu-block");
+import { store } from "../store/store";
+import menulist from './rendertopmenu.vue';
+
+var app = new Vue({
+    store: store,
+    el: '#menu-block',
+    render: h => h(menulist)
+});
