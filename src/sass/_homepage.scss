@@ -44,9 +44,9 @@ ul li{
 	padding: 0;
 	min-height: 40px;
 
-    .headerNav {
+  .headerNav {
 		position: relative;
-		padding: 0;
+    padding: 0;
 	}
 
     .navbar-brand {
@@ -448,6 +448,23 @@ li.nav-item {
   top: 17px;
   height: 0;
 }
+
+#cssmenu {
+.headerNav {
+  position: relative;
+  padding: 0;
+  &--highlight {
+    background-color: $palette-white;
+    a {
+      color: $text-highlight;
+      &:hover {
+        color: $text-highlight;
+      }
+    }
+  }
+}
+}
+
 @media all and (max-width: 768px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
   #cssmenu {
     width: 100%;
