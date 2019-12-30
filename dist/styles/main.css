@@ -9418,6 +9418,16 @@ li.nav-item {
   top: 17px;
   height: 0; }
 
+#cssmenu .headerNav {
+  position: relative;
+  padding: 0; }
+  #cssmenu .headerNav--highlight {
+    background-color: #ffffff; }
+    #cssmenu .headerNav--highlight a {
+      color: #FF0000; }
+      #cssmenu .headerNav--highlight a:hover {
+        color: #FF0000; }
+
 @media all and (max-width: 768px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
   #cssmenu {
     width: 100%; }

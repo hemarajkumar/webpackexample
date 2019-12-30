@@ -135,20 +135,23 @@
 
   }
   
-
-  
-  
-  .banner-content {
-    background: #294057;
-    float: left;
+  .plp-banner {
+    @include flexstyle;
+    background-color: #294057;
     width: 100%;
     padding: 40px;
     box-sizing: border-box;
     text-align: center;
-    &__desc {
+    margin-bottom: 20px;
+    &--title {
+      @include flexstyle;
+      justify-content: left;
+      font-size: 24px;
+      text-decoration: underline;
+      font-style: italic;
       color: $palette-white;
       letter-spacing:2px;
-      font-size: 14px;
+      margin-bottom: 10px;
     }
   
   }

@@ -19,13 +19,30 @@ const productObject = new Vuex.Store({
   state: [{
     'data': data.productList,
     'sortOption': 'default',
-    'productDetals': [],
+    'productDetails': [],
     'categoryList': data.category,
     'categoryTitle': '',
-    'categoryId': ''
+    'categoryId': '',
+    'actionProductObj': []
   }],
   mutations: {
+    getCategoryDetails: (state) => {
+     // console.log('test..');
+      var categoryObj = document.querySelector('.js-router-category');
+      var categoryType = categoryObj.getAttribute('routepage');
+      let categoryList = state[0].categoryList;
+      for (let value of Object.values(categoryList["lists"])) {
+        if (value.name == categoryType.trim()) {
+          state[0].categoryTitle = value.title;
+          state[0].categoryId = value.id;
+        }
+      }
+     // console.log(state[0].categoryTitle);
+      return state[0].categoryId;
+    },
+
     updateSortOption: (state, value) => {
+      let listObj = state[0].productDetails;
       state[0].sortOption = value;
       switch (value){
         case 'lowtohigh':
@@ -41,22 +58,12 @@ const productObject = new Vuex.Store({
           console.log('z to a');
           break;
       }
+      //console.log('1');
+     // console.log(_.filter(listObj,'roundelImg'));
+     // console.log('2');
     }
   },
   getters: {
-    getCategoryDetails: (state) => {
-      var categoryObj = document.querySelector('.js-router-category');
-      var categoryType = categoryObj.innerHTML;
-      let categoryList = state[0].categoryList;
-      for (let value of Object.values(categoryList["lists"])) {
-        if (value.name == categoryType.trim()) {
-          state[0].categoryTitle = value.title;
-          state[0].categoryId = value.id;
-        }
-      }
-      return state[0].categoryId;
-    },
-
     generateProductList: (state) => {
       let productList = state[0].data;
       let productArray = [];
@@ -99,9 +106,10 @@ const productObject = new Vuex.Store({
       productobj = productArray;
       state[0].productDetails = productArray;
       return productobj;
-    }
+    },
   },
-  actions: {}
+  actions: {
+  }
 })
 
 const sortOption = new Vuex.Store({

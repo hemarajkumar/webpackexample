@@ -43,12 +43,20 @@ export default {
   },
   computed: {},
   mounted() {
-    productObject.getters.getCategoryDetails;
-    this.productList = productObject.getters.generateProductList;
+    this.productList = this.updatePlpData();
   },
-  methods: {},
+  methods: {
+    updatePlpData: function() {
+      productObject.commit("getCategoryDetails");
+      return productObject.getters.generateProductList;
+    }
+  },
   watch: {
-    productList: function() {}
+    productList: function() {},
+    $route() {
+      this.productList = [];
+      this.productList = this.updatePlpData();
+    }
   }
 };
 </script>
