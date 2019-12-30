@@ -1,4 +1,5 @@
-# webpackexample
+# Vue project - webpack
+
 This is the single page application vue project running through webpack.
 Currently, I am developing this project.
 
