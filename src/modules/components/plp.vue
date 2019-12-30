@@ -13,7 +13,7 @@
     </header>
 
     <div class="container">
-      <h4>This page content is fully completed. products are loading through vue</h4>
+      <h4>This page content is not fully completed. products are loading through vue</h4>
       <div class="row margin10top col-12 noPad">
         <div id="ProductLists" class="col-12 noPad plp-products">
           <div class="col-12 col-sm-12 col-md-2 noPad">
