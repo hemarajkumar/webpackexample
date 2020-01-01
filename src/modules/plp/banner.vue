@@ -1,19 +1,18 @@
 <template>
   <div class="banner-container">
-    <div class="container banner-container--title">{{ getBannerTitle }}</div>
+    <div class="container banner-container--title">{{ categoryTitle }}</div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   computed: {
-    getBannerTitle() {
-      return this.$store.getters.categoryTitle;
-    }
+    ...mapGetters(["categoryTitle"])
   },
   watch: {
     $route() {
-      return this.$store.commit("getCategoryTitle");
+      return this.$store.commit("categoryTitle");
     }
   }
 };

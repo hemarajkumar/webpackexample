@@ -3,7 +3,7 @@
     <select class="plp-products__sort-by js-sort-by">
       <option value="default">Sort By</option>
       <option
-        v-for="sortOption in getBannerTitle.lists"
+        v-for="sortOption in sortOption.lists"
         v-bind:value="sortOption.id"
         v-bind:key="sortOption.id"
       >{{ sortOption.title }}</option>
@@ -19,7 +19,7 @@ export default {
     };
   },
   computed: {
-    getBannerTitle() {
+    sortOption() {
       return this.$store.state[0].sortList;
     },
     getCategoryId() {

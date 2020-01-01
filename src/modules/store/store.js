@@ -29,7 +29,7 @@ export const store = new Vuex.Store({
     'categoryId': ''
   }],
   mutations: {
-    getCategoryTitle: (state) => {
+    categoryTitle: (state) => {
       state[0].categoryId = '';
       let category = router.history.current.params.category;
       let _categorySection = plpmethods.gatCategoryTitle(category, state[0].categoryList);
@@ -38,7 +38,7 @@ export const store = new Vuex.Store({
       return state[0].categoryTitle;
     },
 
-    generateProductList: (state) => {
+    productList: (state) => {
       let category = router.history.current.params.category;
       let _categoryId = plpmethods.gatCategoryId(category, state[0].categoryList);
       let products = plpmethods.getlistProducts(state[0].data, _categoryId);
@@ -78,7 +78,7 @@ export const store = new Vuex.Store({
         return state[0].categoryTitle;
     },
   
-    generateProductList: (state) => {
+    productList: (state) => {
       let category = router.history.current.params.category;
       let _categoryId = plpmethods.gatCategoryId(category, state[0].categoryList);
       let products = plpmethods.getlistProducts(state[0].data, _categoryId);

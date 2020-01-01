@@ -32,16 +32,16 @@
 </template>
 
 <script>
-import router from "../routing/index";
+import { mapGetters } from 'vuex';
 export default {
   computed: {
-    productList() {
-      return this.$store.getters.generateProductList;
-    }
+    ...mapGetters([
+      'productList'
+    ])
   },
   watch: {
     $route() {
-      return this.$store.commit("generateProductList");
+      return this.$store.commit("productList");
     }
   }
 };
