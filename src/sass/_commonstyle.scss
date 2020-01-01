@@ -70,53 +70,74 @@
 .hide {
   display: none;
 }
+	
 
 @mixin flexstyle{
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-  }
+}
   
-  @mixin flexinlinestyle {
+@mixin flexinlinestyle {
 	display: -webkit-inline-box;
 	display: -ms-inline-flexbox;
 	display: inline-flex;
-  }
+}
   
-  @mixin flexjustifycontent($align) {
+@mixin flexjustifycontent($align) {
 	-webkit-box-pack: $align;
 	-ms-flex-pack: $align;
 	justify-content: $align;
-  }
+}
   
-  @mixin flexalignitem($align) {
+@mixin flexalignitem($align) {
 	-webkit-box-align: $align;
 	-ms-flex-align: $align;
 	align-items: $align;
-  }
-  
-  @mixin flexgrow($property-value) {
+}
+
+@mixin flexgrow($property-value) {
 	-webkit-box-flex: $property-value;
 	-ms-flex-positive: $property-value;
 	flex-grow: $property-value;
-  }
+}
 
-  
-  @mixin flexdirectionrow {
+
+@mixin flexdirectionrow {
 	-webkit-box-orient: horizontal;
 	-webkit-box-direction: normal;
 	-ms-flex-direction: row;
 	flex-direction: row;
-  }
-  
-  @mixin flexdirectioncolumn {
+}
+
+@mixin flexdirectioncolumn {
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	-ms-flex-direction: column;
 	flex-direction: column;
-  }
-  
-  @mixin flexwrap($wrap) {
+}
+
+@mixin flexwrap($wrap) {
 	-ms-flex-wrap: $wrap;
 	flex-wrap: $wrap;
-  }
+}
+
+.banner-container {
+	@include flexstyle;
+	background-color: #294057;
+	width: 100%;
+	padding: 40px;
+	box-sizing: border-box;
+	text-align: center;
+	margin-bottom: 20px;
+	&--title {
+		@include flexstyle;
+		justify-content: left;
+		font-size: 24px;
+		text-decoration: underline;
+		font-style: italic;
+		color: $palette-white;
+		letter-spacing:2px;
+		margin-bottom: 10px;
+	}
+}

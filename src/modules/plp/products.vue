@@ -32,30 +32,16 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { productObject } from "../store/store";
+import router from "../routing/index";
 export default {
-  data() {
-    return {
-      sortObj: productObject.state[0].sortOption,
-      productList: []
-    };
-  },
-  computed: {},
-  mounted() {
-    this.productList = this.updatePlpData();
-  },
-  methods: {
-    updatePlpData: function() {
-      productObject.commit("getCategoryDetails");
-      return productObject.getters.generateProductList;
+  computed: {
+    productList() {
+      return this.$store.getters.generateProductList;
     }
   },
   watch: {
-    productList: function() {},
     $route() {
-      this.productList = [];
-      this.productList = this.updatePlpData();
+      return this.$store.commit("generateProductList");
     }
   }
 };

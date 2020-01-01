@@ -1,31 +1,19 @@
 <template>
-  <div class="plp-banner">
-    <div class="container plp-banner--title">{{ categoryTitle }}</div>
+  <div class="banner-container">
+    <div class="container banner-container--title">{{ getBannerTitle }}</div>
   </div>
 </template>
 
 <script>
-import { productObject } from "../store/store";
 export default {
-  data() {
-    return {
-      categoryTitle: ""
-    };
-  },
-  mounted() {
-    this.categoryTitle = this.getBannerTitle();
-  },
-  methods: {
+  computed: {
     getBannerTitle() {
-      productObject.commit("getCategoryDetails");
-      return productObject.state[0].categoryTitle;
+      return this.$store.getters.categoryTitle;
     }
   },
   watch: {
-    categoryTitle: function() {},
     $route() {
-      productObject.commit("getCategoryDetails");
-      this.categoryTitle = productObject.state[0].categoryTitle;
+      return this.$store.commit("getCategoryTitle");
     }
   }
 };

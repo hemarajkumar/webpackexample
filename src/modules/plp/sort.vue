@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <select @change="updateSort($event.target.value)" class="plp-products__sort-by js-sort-by">
+  <div v-if="getCategoryId">
+    <select class="plp-products__sort-by js-sort-by">
       <option value="default">Sort By</option>
       <option
-        v-for="sortOption in sortObj.lists"
+        v-for="sortOption in getBannerTitle.lists"
         v-bind:value="sortOption.id"
         v-bind:key="sortOption.id"
       >{{ sortOption.title }}</option>
@@ -12,28 +12,23 @@
 </template>
 
 <script>
-import { productObject, sortOption } from "../store/store";
-import { mapMutations } from "vuex";
 export default {
   data() {
     return {
-      sortObj: []
+      categoryIdExists: ""
     };
   },
-  mounted() {
-    this.sortObj = sortOption.state[0].data;
-  },
   computed: {
-    sortOptionSelected() {
-      var sortTypeSelected = sortOption.state[0].sortOption;
-      return {
-        sortTypeSelected
-      };
+    getBannerTitle() {
+      return this.$store.state[0].sortList;
+    },
+    getCategoryId() {
+      return this.$store.state[0].categoryId;
     }
   },
-  methods: {
-    updateSort: function(event) {
-      productObject.commit("updateSortOption", event);
+  watch: {
+    $route() {
+      // function update
     }
   }
 };

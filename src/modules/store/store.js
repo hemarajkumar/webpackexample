@@ -1,7 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import data from "../common/jsondata";
+import router from "../routing/index";
 Vue.use(Vuex);
+
+import plpmethods from './functions';
 
 const navMenu = new Vuex.Store({
   state: [{
@@ -15,30 +18,32 @@ const carouselObject = new Vuex.Store({
   }]
 })
 
-const productObject = new Vuex.Store({
+export const store = new Vuex.Store({
   state: [{
     'data': data.productList,
+    'sortList': data.sortList,
     'sortOption': 'default',
     'productDetails': [],
     'categoryList': data.category,
     'categoryTitle': '',
-    'categoryId': '',
-    'actionProductObj': []
+    'categoryId': ''
   }],
   mutations: {
-    getCategoryDetails: (state) => {
-     // console.log('test..');
-      var categoryObj = document.querySelector('.js-router-category');
-      var categoryType = categoryObj.getAttribute('routepage');
-      let categoryList = state[0].categoryList;
-      for (let value of Object.values(categoryList["lists"])) {
-        if (value.name == categoryType.trim()) {
-          state[0].categoryTitle = value.title;
-          state[0].categoryId = value.id;
-        }
-      }
-     // console.log(state[0].categoryTitle);
-      return state[0].categoryId;
+    getCategoryTitle: (state) => {
+      state[0].categoryId = '';
+      let category = router.history.current.params.category;
+      let _categorySection = plpmethods.gatCategoryTitle(category, state[0].categoryList);
+      state[0].categoryTitle = _categorySection.title;
+      state[0].categoryId = _categorySection.id;
+      return state[0].categoryTitle;
+    },
+
+    generateProductList: (state) => {
+      let category = router.history.current.params.category;
+      let _categoryId = plpmethods.gatCategoryId(category, state[0].categoryList);
+      let products = plpmethods.getlistProducts(state[0].data, _categoryId);
+      state[0].productDetails = products;
+      return state[0].productDetails;
     },
 
     updateSortOption: (state, value) => {
@@ -58,57 +63,31 @@ const productObject = new Vuex.Store({
           console.log('z to a');
           break;
       }
-      //console.log('1');
-     // console.log(_.filter(listObj,'roundelImg'));
-     // console.log('2');
+    // console.log(_.filter(listObj,'roundelImg'));
+    // console.log(_.sortBy( listObj, 'name' ));
+    // console.log('2');
     }
   },
   getters: {
+    categoryTitle: (state) => {
+        state[0].categoryId = '';
+        let category = router.history.current.params.category;
+        let _categorySection = plpmethods.gatCategoryTitle(category, state[0].categoryList);
+        state[0].categoryTitle = _categorySection.title;
+        state[0].categoryId = _categorySection.id;
+        return state[0].categoryTitle;
+    },
+  
     generateProductList: (state) => {
-      let productList = state[0].data;
-      let productArray = [];
-      let categoryTitle = [];
-      let productobj = [];
-      for (let value of Object.values(productList["lists"])) {
-        let childObject = {};
-        childObject["Title"] = value.Title;
-        childObject["id"] = value.id;
-        let listobj = {};
-        let categoryId = state[0].categoryId;
-        for (let list of Object.values(value.list)) {
-          listobj = {};
-          listobj["id"] = list.id;
-          listobj["name"] = list.name;
-          listobj["price"] = list.price;
-          listobj["image"] = list.image;
-          listobj["roundelImg"] = list.roundelImg;
-          listobj["color"] = list.color;
-          listobj["wasprice"] = list.wasprice;
-          listobj["quantity"] = list.quantity;
-          let productId = list.id;
-          switch (categoryId) {
-            case 'viewall':
-              productArray.push(listobj);
-              break;
-            case 'sales':
-              if (list.roundelImg) {
-                productArray.push(listobj);
-              }
-              break;
-            default:
-              if (productId.includes(categoryId)) {
-                productArray.push(listobj);
-              }
-          }
-        }
-        categoryTitle.push(childObject);
-      }
-      productobj = productArray;
-      state[0].productDetails = productArray;
-      return productobj;
+      let category = router.history.current.params.category;
+      let _categoryId = plpmethods.gatCategoryId(category, state[0].categoryList);
+      let products = plpmethods.getlistProducts(state[0].data, _categoryId);
+      state[0].productDetails = products;
+      return state[0].productDetails;
     },
   },
   actions: {
+
   }
 })
 
@@ -116,16 +95,10 @@ const sortOption = new Vuex.Store({
   state: [{
     'data': data.sortList,
     'sortOption': 'default'
-  }],
-  mutations: {
-    updateSortOption: (state, value) => {
-      state[0].sortOption = value;
-    }
-  }
+  }]
 })
 
 export {
-  productObject,
   carouselObject,
   navMenu,
   sortOption
