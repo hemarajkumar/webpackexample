@@ -41,7 +41,6 @@
 
 <script>
 import CarouselFunction from "./loadcarousel";
-import { carouselObject } from "../store/store";
 export default {
   data() {
     return {
@@ -49,8 +48,7 @@ export default {
     };
   },
   mounted() {
-    // this.carouselobj = this.$store.state[0].data.carousel;
-    this.carouselobj = carouselObject.state[0].data;
+    this.carouselobj = this.$store.state[0].carouselList;
     setTimeout(function() {
       CarouselFunction.loadCarousel();
     }, 500);

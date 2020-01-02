@@ -16,7 +16,6 @@
 
 <script>
 require("../header/navigation");
-import { navMenu } from "../store/store";
 export default {
   data() {
     return {
@@ -24,7 +23,7 @@ export default {
     };
   },
   mounted() {
-    this.menuobj = navMenu.state[0].data;
+    this.menuobj = this.$store.state[0].navMenu;
   }
 };
 </script>

@@ -12,16 +12,12 @@ const navMenu = new Vuex.Store({
   }]
 })
 
-const carouselObject = new Vuex.Store({
-  state: [{
-    'data': data.carousel
-  }]
-})
-
 export const store = new Vuex.Store({
   state: [{
     'data': data.productList,
+    'carouselList': data.carousel,
     'sortList': data.sortList,
+    'navMenu': data.menu,
     'sortOption': 'default',
     'productDetails': [],
     'categoryList': data.category,
@@ -99,7 +95,6 @@ const sortOption = new Vuex.Store({
 })
 
 export {
-  carouselObject,
   navMenu,
   sortOption
 }

@@ -13,11 +13,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      categoryIdExists: ""
-    };
-  },
   computed: {
     sortOption() {
       return this.$store.state[0].sortList;
